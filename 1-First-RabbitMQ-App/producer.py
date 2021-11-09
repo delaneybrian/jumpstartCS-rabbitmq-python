@@ -8,8 +8,10 @@ channel = connection.channel()
 
 channel.queue_declare(queue='letterbox')
 
-message = "My First Rabbit MQ message"
+message = "Hello this is my first message"
 
 channel.basic_publish(exchange='', routing_key='letterbox', body=message)
 
-print(f'sent message: {message}')
+print(f"sent message: {message}")
+
+connection.close()
