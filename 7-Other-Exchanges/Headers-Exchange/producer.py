@@ -7,13 +7,12 @@ connection = pika.BlockingConnection(connection_parameters)
 
 channel = connection.channel()
 
-channel.exchange_declare('headersexchamge', ExchangeType.headers)
+channel.exchange_declare('headersexchange', ExchangeType.headers)
 
 message = 'This message will be sent with headers'
 
-
 channel.basic_publish(
-    exchange='headersexchamge', 
+    exchange='headersexchange', 
     routing_key='', 
     body=message, 
     properties=pika.BasicProperties(headers={'name': 'brian'}))

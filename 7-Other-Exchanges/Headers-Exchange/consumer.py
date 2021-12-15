@@ -10,7 +10,7 @@ connection = pika.BlockingConnection(connection_parameters)
 
 channel = connection.channel()
 
-channel.exchange_declare('headersexchamge', ExchangeType.headers)
+channel.exchange_declare('headersexchange', ExchangeType.headers)
 
 channel.queue_declare('letterbox')
 
@@ -20,7 +20,7 @@ bind_args = {
   'age': '21'
 }
 
-channel.queue_bind('letterbox', 'headersexchamge', arguments=bind_args)
+channel.queue_bind('letterbox', 'headersexchange', arguments=bind_args)
 
 channel.basic_consume(queue='letterbox', auto_ack=True,
     on_message_callback=on_message_received)
