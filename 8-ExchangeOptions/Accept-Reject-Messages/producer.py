@@ -16,5 +16,6 @@ message = 'Lets send this'
 
 while True:
     channel.basic_publish(exchange='acceptrejectexchange', routing_key='samplekey', body=message)
-    sleep(3)
     print(f"sent message: {message}")
+    input('Press any key to continue')
+
