@@ -8,16 +8,15 @@ connection = pika.BlockingConnection(connection_parameters)
 
 channel = connection.channel()
 
-
 channel.exchange_declare(exchange='mainexchange', exchange_type=ExchangeType.direct)
 
-message = "This message might expire"
+message = 'This message might expire'
 
 channel.basic_publish(
     exchange='mainexchange', 
     routing_key='test',
     body=message)
 
-print(f"sent message: {message}")
+print(f'sent message: {message}')
 
-connection.close()
+connection.close() 

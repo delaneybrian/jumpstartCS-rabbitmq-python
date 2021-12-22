@@ -9,7 +9,7 @@ def on_message_received(ch, method, properties, body):
 
     #ch.basic_reject(delivery_tag=method.delivery_tag, requeue=False)
 
-    print(f"Received new message: {method.delivery_tag}")
+    print(f'Received new message: {method.delivery_tag}')
 
 connection_parameters = pika.ConnectionParameters('localhost')
 
@@ -26,6 +26,6 @@ channel.queue_bind('letterbox', 'acceptrejectexchange')
 
 channel.basic_consume(queue='letterbox', on_message_callback=on_message_received)
 
-print("Starting Consuming")
+print('Starting Consuming')
 
 channel.start_consuming()

@@ -11,10 +11,10 @@ channel.exchange_declare(exchange='altexchange', exchange_type=ExchangeType.fano
 
 channel.exchange_declare(exchange='mainexchange', exchange_type=ExchangeType.direct, arguments={'alternate-exchange': 'altexchange'})
 
-message = "Hello this is my first message"
+message = 'Hello this is my first message'
 
 channel.basic_publish(exchange='mainexchange', routing_key='test', body=message)
 
-print(f"sent message: {message}")
+print(f'sent message: {message}')
 
 connection.close()
